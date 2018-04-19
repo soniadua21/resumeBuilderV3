@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { ExperienceDataService } from '../../services/experience-data.service';
@@ -17,6 +18,9 @@ export class ExperienceComponent implements OnInit {
    froalaId:number=0; 
 
   constructor(
+    
+    private router:Router,
+    private route:ActivatedRoute,
     private resumeBuilder:ResumeBuilderComponent,
     private froalaEditor:FroalaEditorService,
     private experienceDataService:ExperienceDataService
@@ -47,6 +51,9 @@ export class ExperienceComponent implements OnInit {
 
   onUpdateButton(buttonId){
     this.froalaId=buttonId.id;
+  }
+  onPreview(){
+    this.router.navigate([this.templateId])
   }
 
 ngOnDestroy(){

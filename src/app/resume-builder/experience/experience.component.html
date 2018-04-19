@@ -1,0 +1,92 @@
+<div class="well" style="margin-top: 30px;width:100%;padding-right: 75px;padding-left: 75px;padding-top: 35px;">
+    <div class="row">
+        <div class="col-sm-11">
+            <h2 style="padding-left:13px;">Experience</h2>
+        </div>
+        <div class="col-sm-1 text-right columns" style="padding-right:33px;">
+          
+          <button type="btn btn-danger" >
+              <i class="fa fa-pencil-square fa-2x"></i>
+            </button>
+        </div>
+      </div>
+    <div class="div-center" class="details" [ngSwitch]='froalaId'>
+  
+      <form >
+        
+          <div class="row text-center columns">
+              <div class="col-sm-3">
+                <label class="personaldetail" for="qualification">Designation</label>
+      
+                <button type="btn btn-danger text-right columns">
+                  <i class="fa fa-pencil-square fa-2x"></i>
+                </button>
+              </div>
+              <div class="col-sm-3">
+                <label class="personaldetail" for="school">Company Name</label>
+      
+                <button type="btn btn-danger text-right columns">
+                  <i class="fa fa-pencil-square fa-2x"></i>
+                </button>
+              </div>
+              <div class="col-sm-3">
+                <label class="personaldetail" for="yop">Duration</label>
+      
+                <button type="btn btn-danger text-right columns">
+                  <i class="fa fa-pencil-square fa-2x"></i>
+                </button>
+              </div>
+              <div class="col-sm-3">
+                <label class="personaldetail" for="percentage">Description</label>
+      
+                <button type="btn btn-danger text-right columns">
+                  <i class="fa fa-pencil-square fa-2x"></i>
+                </button>
+              </div>
+            </div>
+            <br><hr>
+            <div *ngFor="let experience of experiences;let i=index">
+        <div class="row">
+          <div class="col-sm-11">
+            <h2 class="personaldetail" for="inputName">Experience #{{i+1}}</h2>
+          </div>
+          <div class="col-sm-1 text-right columns">
+            
+            <button type="btn btn-danger" (click)="onRemoveDetails()">
+                <i class="fa fa-close fa-2x"></i>
+              </button>
+          </div>
+        </div>
+        <br>
+  
+        <div class="row">
+          <div class="col-sm-3">
+            <p type="date" class="form-control" id="textarea" [froalaEditor]="options" [(froalaModel)]="experiences[i].designation">
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p type="date" class="form-control" id="textarea" [froalaEditor]="options" [(froalaModel)]="experiences[i].company">
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p type="date" class="form-control" id="textarea" [froalaEditor]="options" [(froalaModel)]="experiences[i].duration">
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p type="date" class="form-control" id="textarea"  [froalaEditor]="options" [(froalaModel)]="experiences[i].details"></p>
+          </div>
+        </div>
+  <br>
+  <hr>
+  <br>
+</div>
+      </form>
+  
+      <button type="button" class="btn btn-dark btn-md" (click)="onAddDetails()">Add New Field</button>
+      
+      <button type="button" style="float:right" class="btn btn-dark btn-md" (click)="onPreview()">Preview</button>
+  
+  
+    </div>
+  </div>
+  

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
  
-
+import { Router,ActivatedRoute } from '@angular/router';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { EducationDetailsDataService } from '../../services/education-details-data.service';
@@ -13,6 +13,8 @@ import { EducationDetailsDataService } from '../../services/education-details-da
 export class EducationComponent implements OnInit ,OnDestroy{
 
   constructor(
+    private router:Router,
+    private route:ActivatedRoute,
     private resumeBuilder:ResumeBuilderComponent,
     private froalaEditor:FroalaEditorService,
     private educationDetailsData:EducationDetailsDataService
@@ -49,6 +51,9 @@ export class EducationComponent implements OnInit ,OnDestroy{
 
     onUpdateButton(buttonId){
       this.froalaId=buttonId.id;
+    }
+    onPreview(){
+      this.router.navigate([this.templateId])
     }
 
   ngOnDestroy(){

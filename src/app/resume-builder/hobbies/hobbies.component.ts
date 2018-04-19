@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { HobbiesDataService } from '../../services/hobbies-data.service';
+import { Router,ActivatedRoute } from '@angular/router';
  
 @Component({
   selector: 'app-hobbies',
@@ -17,6 +18,8 @@ export class HobbiesComponent implements OnInit {
    froalaId:number=0; 
 
   constructor(
+    private router:Router,
+    private route:ActivatedRoute,
     private resumeBuilder:ResumeBuilderComponent,
     private froalaEditor:FroalaEditorService,
     private hobbiesService:HobbiesDataService
@@ -47,6 +50,9 @@ export class HobbiesComponent implements OnInit {
 
   onUpdateButton(buttonId){
     this.froalaId=buttonId.id;
+  }
+  onPreview(){
+    this.router.navigate([this.templateId])
   }
 
 ngOnDestroy(){

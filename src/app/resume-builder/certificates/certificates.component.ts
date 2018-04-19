@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { CertificatesDataService } from '../../services/certificates-data.service';
- 
+  
+import { Router,ActivatedRoute } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 @Component({
   selector: 'app-certificates',
@@ -18,6 +19,8 @@ export class CertificatesComponent implements OnInit {
    froalaId:number=0; 
 
   constructor(
+    private router:Router,
+    private route:ActivatedRoute,
     private resumeBuilder:ResumeBuilderComponent,
     private froalaEditor:FroalaEditorService,
     private certificatesService:CertificatesDataService,
@@ -25,6 +28,7 @@ export class CertificatesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
     this.templateId=this.resumeBuilder.templateId;
     this.options=this.froalaEditor.options;
     this.certificates=this.certificatesService.certificates;
@@ -58,7 +62,9 @@ showPage() {
   onUpdateButton(buttonId){
     this.froalaId=buttonId.id;
   }
-
+  onPreview(){
+    this.router.navigate([this.templateId])
+  }
 
 ngOnDestroy(){
   this.certificatesService.onSetCertificates(this.certificates)
