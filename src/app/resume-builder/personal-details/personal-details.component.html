@@ -1,0 +1,50 @@
+<div class="container" style="margin-top: 30px;">
+  <div class="div-center" class="details">
+
+    <form [ngSwitch]='froalaId'>
+      <div class="form-group">
+        <label class="personaldetail" for="inputName">Name</label>
+        <p type="name" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.name">
+        </p>
+      </div>
+      <div class="form-group">
+        <label class="personaldetail" for="inputEmail">Email</label>
+        <p type="email" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.email">
+        </p>
+      </div>
+      <div class="form-group">
+        <label class="personaldetail" for="inputDOB">Date of Birth</label>
+        <p type="date" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.dob">
+        </p>
+      </div>
+      <div class="form-group">
+        <label class="personaldetail" for="inputcontact">Contact No.</label>
+        <p type="contact" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.phoneNo">
+        </p>
+      </div>
+      <div class="form-group">
+        <label class="personaldetail" for="inputprofession">Profession</label>
+        <p type="profession" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.profession">
+        </p>
+      </div>
+      <div class="form-group">
+        <label class="personaldetail" for="inputaddress">Address</label>
+        <p type="address" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.address">
+        </p>
+      </div>
+      <div class="form-group" *ngFor="let newField of newFields;let i=index">
+        <div *ngSwitchCase="7">
+          <label class="personaldetail" for="inputaddress">Other official account {{i+1}}</label>
+          <p type="address" class="form-control" id="textarea" [froalaEditor]="options" [(froalaModel)]="newFields[i].fieldInfo">
+          </p>
+        </div>
+      </div>
+    </form>
+    
+      <button type="button" class="btn btn-dark btn-md" (click)="onAddDetails()">Add New Field</button>
+      <button type="button" class="btn btn-dark btn-md" (click)="onRemoveDetails()">Remove Field</button>
+      <button type="button"style="float:right"  class="btn btn-dark btn-md" (click)="onPreview()">Preview</button>
+   
+
+  </div>
+</div>
