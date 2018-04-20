@@ -27,10 +27,13 @@ export class FroalaEditorService {
     placeholderText: 'My Photo',
     charCounterCount: false,
     toolbarButtons: ['insertImage'],
-    height:110,
-    width:140,
+    height:130,
+    width:'auto',
     toolbarSticky: false,
-    imageInsertButtons: ['imageBack', '|', 'imageUpload']
+    imageInsertButtons: ['imageBack', '|', 'imageUpload'],
+    toolbarInline: true,
+    toolbarVisibleWithoutSelection: true,
+  
   }
 
 }

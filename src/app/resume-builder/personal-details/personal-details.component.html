@@ -1,9 +1,11 @@
 <div class="well" style="margin-top: 30px;width:100%;padding-right: 75px;padding-left: 75px;padding-top: 35px;">
-<h2 style="padding-left:10px;">Personal Information</h2>
+<h2 style="padding-left:25px;">Personal Information</h2>
   <div class="div-center" class="details">
     
     <form [ngSwitch]='froalaId'>
       <div class="form-group">
+        <div class="row">
+        <div class="col-sm-9">
         <div class="row">
         <div class="col-sm-11">
           <label class="personaldetail" for="inputName">Name</label>
@@ -15,28 +17,49 @@
             </button>
         </div>
       </div>
-     
       <p type="name" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.name">
-      </p>
-
-  </div>
-
-  <div class="form-group">
+        </p>
+        <div class="form-group">
    
-    <div class="row">
-        <div class="col-sm-11">
-            <label class="personaldetail" for="inputDOB">Date of Birth</label>
-        </div>
-        <div class="col-sm-1 text-right columns">
+            <div class="row">
+                <div class="col-sm-11">
+                    <label class="personaldetail" for="inputDOB">Date of Birth</label>
+                </div>
+                <div class="col-sm-1 text-right columns">
+                 
+                  <button type="btn btn-danger">
+                      <i class="fa fa-pencil-square fa-2x"></i>
+                    </button>
+                </div>
+              </div>
+            <p type="date" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.dob">
+            </p>
+          </div> 
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="row">
+            <div class="col-sm-10">
+              <label class="personaldetail" for="inputName">Image</label>
+            </div>
+            <div class="col-sm-1 text-right columns">
+              
+              <button type="btn btn-danger">
+                  <i class="fa fa-pencil-square fa-2x"></i>
+                </button>
+            </div>
+          </div>
          
-          <button type="btn btn-danger">
-              <i class="fa fa-pencil-square fa-2x"></i>
-            </button>
+          <p type="name" class="form-control" [froalaEditor]="optionsImage" [(froalaModel)]="personalDetails.image">
+          </p>
+        
         </div>
-      </div>
-    <p type="date" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.dob">
-    </p>
+    </div>
+     </div>
+     
   </div>
+ 
+ 
   <div class="form-group">
       <div class="row">
           <div class="col-sm-11">

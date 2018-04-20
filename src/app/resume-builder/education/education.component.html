@@ -1,9 +1,9 @@
 <div class="well" style="margin-top: 30px;width:100%;padding-right: 75px;padding-left: 75px;padding-top: 35px;">
     <div class="row">
         <div class="col-sm-11">
-            <h2 style="padding-left:13px;">Education</h2>
+            <h2 style="padding-left:33px;">Education</h2>
         </div>
-        <div class="col-sm-1 text-right columns" style="padding-right:33px;">
+        <div class="col-sm-1 text-right columns" style="padding-right:53px;">
           
           <button type="btn btn-danger" >
               <i class="fa fa-pencil-square fa-2x"></i>
@@ -13,37 +13,37 @@
   <div class="div-center" class="details" [ngSwitch]='froalaId'>
      
     <form>
-        <div class="row text-center columns" >
+        <div class="row " >
             <div class="col-sm-3">
-              <label class="personaldetail" for="qualification"> Qualification</label>
-    
+              <label class="personaldetail" for="qualification" style="padding-right:180px"> Qualification</label>
+             
+              <button type="btn btn-danger text-right columns" >
+                <i class="fa fa-pencil-square fa-2x"></i>
+              </button>
+            </div>
+            <div class="col-sm-3">
+              <label class="personaldetail" for="school"  style="padding-right:150px">School/College</label>
+            
               <button type="btn btn-danger text-right columns">
                 <i class="fa fa-pencil-square fa-2x"></i>
               </button>
             </div>
             <div class="col-sm-3">
-              <label class="personaldetail" for="school">School/College</label>
-    
+              <label class="personaldetail" for="yop"  style="padding-right:130px">Year of Passing</label>
+             
               <button type="btn btn-danger text-right columns">
                 <i class="fa fa-pencil-square fa-2x"></i>
               </button>
             </div>
             <div class="col-sm-3">
-              <label class="personaldetail" for="yop">Year of Passing</label>
-    
-              <button type="btn btn-danger text-right columns">
-                <i class="fa fa-pencil-square fa-2x"></i>
-              </button>
-            </div>
-            <div class="col-sm-3">
-              <label class="personaldetail" for="percentage">Percentage</label>
-    
+              <label class="personaldetail" for="percentage"  style="padding-right:210px">Percentage</label>
+              
               <button type="btn btn-danger text-right columns">
                 <i class="fa fa-pencil-square fa-2x"></i>
               </button>
             </div>
           </div>
-          <br>
+        
           <hr>
           <div *ngFor="let education of educationDetails;let i=index">
       <div class="row">
