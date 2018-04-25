@@ -20,14 +20,21 @@ import { DownloadService } from '../services/download.service';
 export class ResumePreviewComponent implements OnInit {
 
   links:{activateHobbies,activateInterests,activateCertificates,activateLanguages,activateSummary}
-  personalDetails:{name,profession,dob,phoneNo,email,address};
+  personalDetails:{name,profession,dob,phoneNo,email,address,image,nametitle,professiontitle,dobtitle,phoneNotitle,emailtitle,addresstitle,imagetitle};
   educationDetails:{schoolName:string,Qualification:string,Marks:string,yearOfPassing:string}[];
   skills:{name:string,details:string}[];
+  skillsTitle:{title};
+  educationDetailsTitle:{title,schoolnametitle,Qualificationtitle,Markstitle,yearOfPassingtitle};
   experiences:{designation:string,company:string,duration:string,details:string}[];
+  experiencesTitle:{title,designationtitle,companytitle,durationtitle,detailstitle};
   hobbies:string[];
+  hobbiesTitle:{title};
   interests:string[];
+  interestsTitle:{title};
   certificates:string[];
+  certificatesTitle:{title};
   languages:string[];
+  languageTitle:{title};
   
   constructor(
     private route:Router,
@@ -47,12 +54,19 @@ export class ResumePreviewComponent implements OnInit {
     this.links=this.dataStore.links;
     this.personalDetails=this.personalDetailsData.personalDetails;
     this.educationDetails=this.educationDetailsData.educationDetails;
+    this.educationDetailsTitle=this.educationDetailsData.educationDetailsTitle;
     this.skills=this.skillsData.skills;
+    this.skillsTitle=this.skillsData.skillsTitle;
     this.experiences=this.experienceData.experiences;
     this.hobbies=this.hobbiesData.hobbies;
     this.interests=this.interestsData.interests;
     this.certificates=this.certificatesData.certificates;
     this.languages=this.languagesData.languages;
+    this.experiencesTitle=this.experienceData.experiencesTitle;
+    this.hobbiesTitle=this.hobbiesData.hobbiesTitle;
+    this.interestsTitle=this.interestsData.interestsTitle;
+    this.certificatesTitle=this.certificatesData.certificatesTitle;
+    this.languageTitle=this.languagesData.languageTitle;
   }
 
   downloadPDF(){

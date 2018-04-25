@@ -1,13 +1,16 @@
 <div class="well" style="margin-top: 30px;width:100%;padding-right: 75px;padding-left: 75px;padding-top: 35px;">
     <div class="row">
         <div class="col-sm-11">
-            <h2 style="padding-left:33px;">Certificate</h2>
+            <h2 style="padding-left:33px;" [froalaView]="certificatesTitle.title">{{certificatesTitle.title}}</h2>
         </div>
         <div class="col-sm-1 text-right columns" style="padding-right:53px;">
           
-          <button type="btn btn-danger" >
-              <i class="fa fa-pencil-square fa-2x"></i>
-            </button>
+          <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popcertificate" popoverTitle="Edit Title ">
+            <i class="fa fa-pencil-square fa-2x"></i>
+          </button>
+          <ng-template #popcertificate>
+            <p [froalaEditor]='options' [(froalaModel)]="certificatesTitle.title"></p>
+          </ng-template>
         </div>
       </div>
     <div class="div-center" class="details" [ngSwitch]='froalaId'>
@@ -24,7 +27,7 @@
           </div>
           <div class="col-sm-1 text-right columns">
   
-            <button type="btn btn-danger" (click)="onRemoveDetails()">
+            <button type="btn btn-danger" (click)="onRemoveDetails(i)">
               <i class="fa fa-close fa-2x"></i>
             </button>
           </div>

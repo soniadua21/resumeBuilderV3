@@ -5,6 +5,9 @@ export class LanguagesDataService {
 
   constructor() { }
 
+  languageTitle:{title}={
+    title:'Language'
+  }
   languages:string[]=['Language'];
   languageId:number=0;
 
@@ -16,8 +19,8 @@ export class LanguagesDataService {
     this.languages.push('Language');
   }
 
-  onRemoveLanguages(){
-    this.languages.pop();
+  onRemoveLanguages(id){
+    this.languages.splice(id,1);
   }
 
   onSetLanguagesId(id){

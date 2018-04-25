@@ -3,7 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { SkillsDataService } from '../../services/skills-data.service';
- 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-skills',
@@ -17,6 +17,7 @@ export class SkillsComponent implements OnInit {
    skills:{name:string,details:string}[];
    id:number;
    froalaId:number=0; 
+   skillsTitle:{title:string}
 
   constructor(
     private router:Router,
@@ -31,6 +32,7 @@ export class SkillsComponent implements OnInit {
     this.options=this.froalaEditor.options;
     this.skills=this.skillsService.skills;
     this.id=this.skillsService.skillId;
+    this.skillsTitle=this.skillsService.skillsTitle;
   }
 
   onAddDetails(){
@@ -39,11 +41,12 @@ export class SkillsComponent implements OnInit {
     this.froalaId++;
   }
 
-  onRemoveDetails(){
-    if(this.id>=1){
-      this.skillsService.onRemoveSkillDetails();
-      this.id--;
+  onRemoveDetails(id){
+    if(this.id>0){
+      this.skillsService.onRemoveSkillDetails(id);
+      this.id-1;
     }
+    
     if(this.froalaId>0){
       this.froalaId--;
     }

@@ -10,14 +10,11 @@
   
       <h1 class="fn" [froalaView]="personalDetails.name">{{personalDetails.name}}</h1>
   
-      <p>
-          Phone No: <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span>
-          Email: <a class="email" href="mailto:greatoldone@lovecraft.com" [froalaView]="personalDetails.email">{{personalDetails.email}}</a>
-      </p>
-      <p *ngFor="let newField of newFields,let i=index">
-            <a [froalaView]="newFields[i].fieldName">{{newFields[i].fieldName}}</a>
-            <span class="tel" [froalaView]="newFields[i].fieldInfo">{{newFields[i].fieldInfo}}</span>
-          </p>
+      <p [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}} <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span>
+      </p>    
+       <p [froalaView]="personalDetails.email">{{personalDetails.email}}<a class="email" href="mailto:greatoldone@lovecraft.com" [froalaView]="personalDetails.email">{{personalDetails.email}}</a></p>
+     
+     
   </div>
   
   <div class="clear"></div>
@@ -25,7 +22,7 @@
   <dl>
       <dd class="clear"></dd>
       
-      <dt>Education</dt>
+      <dt [froalaView]="educationDetailsTitle.title">{{educationDetailsTitle.title}}</dt>
       <dd *ngFor="let education of educationDetails;let i=index">
         <h2 [froalaView]="educationDetails[i].Qualification">{{educationDetails[i].Qualification}}</h2>
            <p [froalaView]="educationDetails[i].schoolName">{{educationDetails[i].schoolName}}</p>
@@ -34,7 +31,7 @@
       
       <dd class="clear"></dd>
       
-      <dt>Skills</dt>
+      <dt [froalaView]="skillsTitle.title">{{skillsTitle.title}}</dt>
       <dd *ngFor="let skill of skills;let i=index">
           <h4 [froalaView]="skills[i].name"> {{skills[i].name}}</h4>
          
@@ -42,7 +39,7 @@
       
       <dd class="clear"></dd>
       
-      <dt>Experience</dt>
+      <dt [froalaView]="experiencesTitle.title">{{experiencesTitle.title}}</dt>
       <dd *ngFor="let experience of experiences;let i=index">
           <h2 [froalaView]="experiences[i].designation">{{experiences[i].designation}} </h2>
           <span [froalaView]="experiences[i].company">{{experiences[i].company}}</span><br>
@@ -55,25 +52,25 @@
       <dd class="clear"></dd>
 
       <div *ngIf="links.activateHobbies==1">
-            <dt>Hobbies</dt>
+            <dt [froalaView]="hobbiesTitle.title">{{hobbiesTitle.title}}</dt>
             <dd *ngFor="let hobby of hobbies;let i=index" [froalaView]="hobbies[i]">{{hobbies[i]}}</dd>
       </div>
       <dd class="clear"></dd>
 
       <div *ngIf="links.activateInterests==1">
-            <dt>Interests</dt>
+            <dt [froalaView]="interestsTitle.title">{{interestsTitle.title}}</dt>
             <dd *ngFor="let interest of interests;let i=index" [froalaView]="interests[i]">{{interests[i]}}</dd>
       </div>
       <dd class="clear"></dd>
 
       <div *ngIf="links.activateCertificates==1">
-            <dt>Certificates</dt>
+            <dt [froalaView]="certificatesTitle.title">{{certificatesTitle.title}}</dt>
             <dd *ngFor="let certificate of certificates;let i=index" [froalaView]="certificates[i]">{{certificates[i]}}</dd>
       </div>
       <dd class="clear"></dd>
 
       <div *ngIf="links.activateLanguages==1">
-            <dt>Languages</dt>
+            <dt [froalaView]="languageTitle.title">{{languageTitle.title}}</dt>
             <dd *ngFor="let language of languages;let i=index" [froalaView]="languages[i]">{{languages[i]}}</dd>
       </div>
       <dd class="clear"></dd>
@@ -84,7 +81,7 @@
 
 </div>
 </body>
-<div class="footer">
+<footer style="float:center">
         <button class="btn btn-primary" (click)="onBackPage()">Back To Editor</button>
         <button type="button" (click)="downloadPDF()" class="btn btn-primary">Download Pdf </button>
-    </div>
+    <footer>

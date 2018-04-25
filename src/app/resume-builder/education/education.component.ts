@@ -4,7 +4,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { EducationDetailsDataService } from '../../services/education-details-data.service';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
@@ -25,12 +25,14 @@ export class EducationComponent implements OnInit ,OnDestroy{
    educationDetails:{schoolName:string,Qualification:string,Marks:string,yearOfPassing:string}[];
    id:number;
    froalaId:number=0;
+   educationDetailsTitle:{schoolnametitle:string,Qualificationtitle:string,Markstitle:string,yearOfPassingtitle:string};
 
   ngOnInit() {
     this.templateId=this.resumeBuilder.templateId;
     this.options=this.froalaEditor.options;
     this.educationDetails=this.educationDetailsData.educationDetails;
     this.id=this.educationDetailsData.educationId;
+    this.educationDetailsTitle=this.educationDetailsData.educationDetailsTitle;
     }
 
     onAddDetails(){
@@ -39,10 +41,10 @@ export class EducationComponent implements OnInit ,OnDestroy{
       this.froalaId++;
     }
 
-    onRemoveDetails(){
+    onRemoveDetails(id){
       if(this.id>=1){
-        this.educationDetailsData.onRemoveEducationDetails();
-        this.id--;
+        this.educationDetailsData.onRemoveEducationDetails(id);
+        this.id-1;
       }
       if(this.froalaId>0){
         this.froalaId--;

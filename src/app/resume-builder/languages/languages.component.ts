@@ -3,7 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { LanguagesDataService } from '../../services/languages-data.service';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-languages',
   templateUrl: './languages.component.html',
@@ -16,6 +16,7 @@ export class LanguagesComponent implements OnInit {
    languages:string[];
    id:number;
    froalaId:number=0; 
+   languageTitle:{title:string}
 
   constructor(
     private router:Router,
@@ -30,6 +31,7 @@ export class LanguagesComponent implements OnInit {
     this.options=this.froalaEditor.options;
     this.languages=this.languagesService.languages;
     this.id=this.languagesService.languageId;
+    this.languageTitle=this.languagesService.languageTitle;
   }
 
   onAddDetails(){
@@ -38,10 +40,10 @@ export class LanguagesComponent implements OnInit {
     this.froalaId++;
   }
 
-  onRemoveDetails(){
-    if(this.id>=1){
-      this.languagesService.onRemoveLanguages();
-      this.id--;
+  onRemoveDetails(id){
+    if(this.id>0){
+      this.languagesService.onRemoveLanguages(id);
+      this.id-1;
     }
     if(this.froalaId>0){
       this.froalaId--;

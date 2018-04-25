@@ -22,7 +22,7 @@ import { ResumePreviewComponent } from './resume-preview/resume-preview.componen
 import { ResumePreview1Component } from './resume-preview-1/resume-preview-1.component';
 import { ResumePreview2Component } from './resume-preview-2/resume-preview-2.component';
 import { ResumePreview3Component } from './resume-preview-3/resume-preview-3.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataStoreService } from './services/data-store.service';
 import { FroalaEditorService } from './services/froala-editor.service';
 import { PersonalDetailsDataService } from './services/personal-details-data.service';
@@ -34,6 +34,7 @@ import { InterestsDataService } from './services/interests-data.service';
 import { CertificatesDataService } from './services/certificates-data.service';
 import { LanguagesDataService } from './services/languages-data.service';
 import { DownloadService } from './services/download.service';
+
 
 @NgModule({
   declarations: [
@@ -53,10 +54,11 @@ import { DownloadService } from './services/download.service';
     CertificatesComponent,
     LanguagesComponent,
     IndexPageComponent,
+    
 
   ],
   imports: [
-    BrowserModule,FormsModule,AppRoutingModule,AngularFontAwesomeModule ,FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
+    BrowserModule,FormsModule,AppRoutingModule,AngularFontAwesomeModule ,FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),NgbModule.forRoot()
   ],
   providers: [
     ResumeBuilderComponent,
@@ -70,7 +72,8 @@ import { DownloadService } from './services/download.service';
     InterestsDataService,
     CertificatesDataService,
     LanguagesDataService,
-    DownloadService
+    DownloadService,
+    
   ],
   bootstrap: [AppComponent]
 })

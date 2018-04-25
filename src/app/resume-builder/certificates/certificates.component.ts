@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { CertificatesDataService } from '../../services/certificates-data.service';
-  
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router,ActivatedRoute } from '@angular/router';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+
 @Component({
   selector: 'app-certificates',
   templateUrl: './certificates.component.html',
@@ -17,6 +17,7 @@ export class CertificatesComponent implements OnInit {
    certificates:string[];
    id:number;
    froalaId:number=0; 
+   certificatesTitle:{title:string};
 
   constructor(
     private router:Router,
@@ -33,6 +34,7 @@ export class CertificatesComponent implements OnInit {
     this.options=this.froalaEditor.options;
     this.certificates=this.certificatesService.certificates;
     this.id=this.certificatesService.certificateId;
+    this.certificatesTitle=this.certificatesService.certificatesTitle;
   }
 
   onAddDetails(){
@@ -49,10 +51,10 @@ showPage() {
   document.getElementById("loader").remove;
 }
 
-  onRemoveDetails(){
+  onRemoveDetails(id){
     if(this.id>=1){
-      this.certificatesService.onRemoveCertificates();
-      this.id--;
+      this.certificatesService.onRemoveCertificates(id);
+      this.id-1;
     }
     if(this.froalaId>0){
       this.froalaId--;

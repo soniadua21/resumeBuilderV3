@@ -3,7 +3,7 @@ import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { HobbiesDataService } from '../../services/hobbies-data.service';
 import { Router,ActivatedRoute } from '@angular/router';
- 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-hobbies',
   templateUrl: './hobbies.component.html',
@@ -16,7 +16,7 @@ export class HobbiesComponent implements OnInit {
    hobbies:string[];
    id:number;
    froalaId:number=0; 
-
+    hobbiesTitle:{title:string}
   constructor(
     private router:Router,
     private route:ActivatedRoute,
@@ -30,6 +30,7 @@ export class HobbiesComponent implements OnInit {
     this.options=this.froalaEditor.options;
     this.hobbies=this.hobbiesService.hobbies;
     this.id=this.hobbiesService.hobbieId;
+    this.hobbiesTitle=this.hobbiesService.hobbiesTitle;
   }
 
   onAddDetails(){
@@ -38,10 +39,10 @@ export class HobbiesComponent implements OnInit {
     this.froalaId++;
   }
 
-  onRemoveDetails(){
+  onRemoveDetails(id){
     if(this.id>=1){
-      this.hobbiesService.onRemoveHobbies();
-      this.id--;
+      this.hobbiesService.onRemoveHobbies(id);
+      this.id-1;
     }
     if(this.froalaId>0){
       this.froalaId--;

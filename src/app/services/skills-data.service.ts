@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class SkillsDataService {
 
   constructor() { }
-
+  skillsTitle:{title}={title:'Skills'}
   skills:{name:string,details:string}[]=[{name:'Name',details:'Details'}];
   skillId:number=0;
 
@@ -16,8 +16,8 @@ export class SkillsDataService {
       name:'Name',details:'Details'
     })
   }
-  onRemoveSkillDetails(){
-    this.skills.pop();
+  onRemoveSkillDetails(id){
+    this.skills.splice(id,1);
   }
 
   onSetSkillId(id){

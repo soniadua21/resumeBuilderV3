@@ -8,13 +8,18 @@
           <div class="col-sm-9">
             <div class="row">
               <div class="col-sm-11">
-                <label class="personaldetail" for="inputName">Name</label>
+                <label class="personaldetail" for="inputName" [froalaView]="personalDetails.nametitle">{{personalDetails.nametitle}}</label>
               </div>
               <div class="col-sm-1 text-right columns">
-                 
-                    <button type="btn btn-danger text-right columns">
-                        <i class="fa fa-pencil-square fa-2x"></i>
-                      </button>
+
+                <button type="btn btn-outline-secondary text-right columns" placement="right-bottom" [ngbPopover]="popName" popoverTitle="Edit Title ">
+
+                  <i class="fa fa-pencil-square fa-2x"></i>
+                </button>
+
+                <ng-template #popName>
+                  <p [froalaEditor]='options' [(froalaModel)]="personalDetails.nametitle"></p>
+                </ng-template>
               </div>
             </div>
             <p type="name" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.name">
@@ -23,13 +28,16 @@
 
               <div class="row">
                 <div class="col-sm-11">
-                  <label class="personaldetail" for="inputDOB">Date of Birth</label>
+                  <label class="personaldetail" for="inputDOB" [froalaView]="personalDetails.dobtitle">{{personalDetails.dobtitle}}</label>
                 </div>
                 <div class="col-sm-1 text-right columns">
-                    
-                      <button type="btn btn-danger text-right columns">
-                          <i class="fa fa-pencil-square fa-2x"></i>
-                        </button>
+
+                  <button type="btn btn-outline-secondary text-right columns" placement="right-bottom" [ngbPopover]="popDob" popoverTitle="Edit Title ">
+                    <i class="fa fa-pencil-square fa-2x"></i>
+                  </button>
+                  <ng-template #popDob>
+                    <p [froalaEditor]='options' [(froalaModel)]="personalDetails.dobtitle"></p>
+                  </ng-template>
                 </div>
               </div>
               <p type="date" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.dob">
@@ -40,14 +48,13 @@
             <div class="form-group">
               <div class="row">
                 <div class="col-sm-10">
-                  <label class="personaldetail" for="inputName">Image</label>
+                  <label class="personaldetail" for="inputImage">Image</label>
                 </div>
                 <div class="col-sm-1 text-right columns">
 
-                   
-                      <button type="btn btn-danger text-right columns">
-                          <i class="fa fa-pencil-square fa-2x"></i>
-                        </button>
+
+
+
                 </div>
               </div>
 
@@ -64,13 +71,15 @@
       <div class="form-group">
         <div class="row">
           <div class="col-sm-11">
-            <label class="personaldetail" for="inputcontact">Contact No.</label>
+            <label class="personaldetail" for="inputcontact" [froalaView]="personalDetails.phoneNotitle">{{personalDetails.phoneNotitle}}</label>
           </div>
           <div class="col-sm-1 text-right columns">
-
-                              <button type="btn btn-danger text-right columns">
-                    <i class="fa fa-pencil-square fa-2x"></i>
-                  </button>
+            <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popContact" popoverTitle="Edit Title ">
+              <i class="fa fa-pencil-square fa-2x"></i>
+            </button>
+            <ng-template #popContact>
+              <p [froalaEditor]='options' [(froalaModel)]="personalDetails.phoneNotitle"></p>
+            </ng-template>
           </div>
         </div>
 
@@ -82,13 +91,15 @@
 
         <div class="row">
           <div class="col-sm-11">
-            <label class="personaldetail" for="inputaddress">Address</label>
+            <label class="personaldetail" for="inputaddress" [froalaView]="personalDetails.addresstitle">{{personalDetails.addresstitle}}</label>
           </div>
           <div class="col-sm-1 text-right columns">
-              
-                <button type="btn btn-danger text-right columns">
-                    <i class="fa fa-pencil-square fa-2x"></i>
-                  </button>
+            <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popAddress" popoverTitle="Edit Title ">
+              <i class="fa fa-pencil-square fa-2x"></i>
+            </button>
+            <ng-template #popAddress>
+              <p [froalaEditor]='options' [(froalaModel)]="personalDetails.addresstitle"></p>
+            </ng-template>
           </div>
         </div>
         <p type="address" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.address">
@@ -97,16 +108,15 @@
       <div class="form-group">
         <div class="row">
           <div class="col-sm-11">
-            <label class="personaldetail" for="inputEmail">Email</label>
+            <label class="personaldetail" for="inputEmail" [froalaView]="personalDetails.emailtitle">{{personalDetails.emailtitle}}</label>
           </div>
           <div class="col-sm-1 text-right columns">
-               
-                    <button type="btn btn-danger text-right columns">
-                        <i class="fa fa-close fa-2x"></i>
-                      </button>
-                      <button type="btn btn-danger text-right columns">
-                          <i class="fa fa-pencil-square fa-2x"></i>
-                        </button>
+            <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popEmail" popoverTitle="Edit Title ">
+              <i class="fa fa-pencil-square fa-2x"></i>
+            </button>
+            <ng-template #popEmail>
+              <p [froalaEditor]='options' [(froalaModel)]="personalDetails.emailtitle"></p>
+            </ng-template>
           </div>
         </div>
         <p type="email" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.email">
@@ -115,48 +125,27 @@
       <div class="form-group">
         <div class="row">
           <div class="col-sm-11">
-            <label class="personaldetail" for="inputprofession">Profession</label>
+            <label class="personaldetail" for="inputprofession"  [froalaView]="personalDetails.professiontitle">{{personalDetails.professiontitle}}</label>
           </div>
           <div class="col-sm-1 text-right columns">
-              <button type="btn btn-danger text-right columns">
-                  <i class="fa fa-close fa-2x"></i>
-                </button>
-                <button type="btn btn-danger text-right columns">
-                    <i class="fa fa-pencil-square fa-2x"></i>
-                  </button>
-        </div>
+            <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popProfession" popoverTitle="Edit Title ">
+              <i class="fa fa-pencil-square fa-2x"></i>
+            </button>
+            <ng-template #popProfession>
+              <p [froalaEditor]='options' [(froalaModel)]="personalDetails.professiontitle"></p>
+            </ng-template>
+          </div>
         </div>
 
         <p type="profession" class="form-control" id="textarea" [froalaEditor]='options' [(froalaModel)]="personalDetails.profession">
         </p>
       </div>
-      <div class="form-group" *ngFor="let newField of newFields;let i=index">
-        <div *ngSwitchCase="7">
-          <div class="row">
-            <div class="col-sm-11">
-              <label class="personaldetail" for="inputaddress">Other official account {{i+1}}</label>
-            </div>
-            
-            <div class="col-sm-1 text-right columns">
-                <button type="btn btn-danger text-right columns">
-                    <i class="fa fa-close fa-2x"></i>
-                  </button>
-                  <button type="btn btn-danger text-right columns">
-                      <i class="fa fa-pencil-square fa-2x"></i>
-                    </button>
-                  </div>
-          </div>
-
-          <p type="address" class="form-control" id="textarea" [froalaEditor]="options" [(froalaModel)]="newFields[i].fieldInfo">
-          </p>
-        </div>
-      </div>
+      <button type="button" style="float:center" class="btn btn-dark btn-md" (click)="onPreview()">Preview</button>
     </form>
 
-    <button type="button" class="btn btn-dark btn-md" (click)="onAddDetails()">Add New Field</button>
+  
 
-    <button type="button" style="float:right" class="btn btn-dark btn-md" (click)="onPreview()">Preview</button>
-
+   
 
   </div>
 </div>

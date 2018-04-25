@@ -1,13 +1,16 @@
 <div class="well" style="margin-top: 30px;width:100%;padding-right: 75px;padding-left: 75px;padding-top: 35px;">
     <div class="row">
         <div class="col-sm-11">
-            <h2 style="padding-left:33px;">Education</h2>
+            <h2 style="padding-left:33px;" [froalaView]="educationDetailsTitle.title">{{educationDetailsTitle.title}}</h2>
         </div>
         <div class="col-sm-1 text-right columns" style="padding-right:53px;">
           
-          <button type="btn btn-danger" >
-              <i class="fa fa-pencil-square fa-2x"></i>
-            </button>
+            <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popeducationDetailsTitle" popoverTitle="Edit Title ">
+                <i class="fa fa-pencil-square fa-2x"></i>
+              </button>
+              <ng-template #popeducationDetailsTitle>
+                <p [froalaEditor]='options' [(froalaModel)]="educationDetailsTitle.title"></p>
+              </ng-template>
         </div>
       </div>
   <div class="div-center" class="details" [ngSwitch]='froalaId'>
@@ -15,32 +18,42 @@
     <form>
         <div class="row " >
             <div class="col-sm-3">
-              <label class="personaldetail" for="qualification" style="padding-right:180px"> Qualification</label>
+              <label class="personaldetail" for="qualification" style="padding-right:180px" [froalaView]="educationDetailsTitle.Qualificationtitle">{{educationDetailsTitle.Qualificationtitle}}</label>
              
-              <button type="btn btn-danger text-right columns" >
-                <i class="fa fa-pencil-square fa-2x"></i>
-              </button>
+              <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popeducationDetailsQualification" popoverTitle="Edit Title ">
+                  <i class="fa fa-pencil-square fa-2x"></i>
+                </button>
+                <ng-template #popeducationDetailsQualification>
+                  <p [froalaEditor]='options' [(froalaModel)]="educationDetailsTitle.Qualificationtitle"></p>
+                </ng-template>
             </div>
             <div class="col-sm-3">
-              <label class="personaldetail" for="school"  style="padding-right:150px">School/College</label>
-            
-              <button type="btn btn-danger text-right columns">
-                <i class="fa fa-pencil-square fa-2x"></i>
-              </button>
+              <label class="personaldetail" for="school"  style="padding-right:150px" [froalaView]="educationDetailsTitle.schoolnametitle">{{educationDetailsTitle.schoolnametitle}}</label>
+              <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popeducationDetailsSchool" popoverTitle="Edit Title ">
+                  <i class="fa fa-pencil-square fa-2x"></i>
+                </button>
+                <ng-template #popeducationDetailsSchool>
+                  <p [froalaEditor]='options' [(froalaModel)]="educationDetailsTitle.schoolnametitle"></p>
+                </ng-template>
             </div>
             <div class="col-sm-3">
-              <label class="personaldetail" for="yop"  style="padding-right:130px">Year of Passing</label>
-             
-              <button type="btn btn-danger text-right columns">
-                <i class="fa fa-pencil-square fa-2x"></i>
-              </button>
+              <label class="personaldetail" for="yop"  style="padding-right:130px" [froalaView]="educationDetailsTitle.yearOfPassingtitle">{{educationDetailsTitle.yearOfPassingtitle}}</label>
+              <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popeducationDetailsyop" popoverTitle="Edit Title ">
+                  <i class="fa fa-pencil-square fa-2x"></i>
+                </button>
+                <ng-template #popeducationDetailsyop>
+                  <p [froalaEditor]='options' [(froalaModel)]="educationDetailsTitle.yearOfPassingtitle"></p>
+                </ng-template>
             </div>
             <div class="col-sm-3">
-              <label class="personaldetail" for="percentage"  style="padding-right:210px">Percentage</label>
+              <label class="personaldetail" for="percentage"  style="padding-right:210px" [froalaView]="educationDetailsTitle.Markstitle">{{educationDetailsTitle.Markstitle}}</label>
               
-              <button type="btn btn-danger text-right columns">
-                <i class="fa fa-pencil-square fa-2x"></i>
-              </button>
+              <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popeducationDetailsmarks" popoverTitle="Edit Title ">
+                  <i class="fa fa-pencil-square fa-2x"></i>
+                </button>
+                <ng-template #popeducationDetailsmarks>
+                  <p [froalaEditor]='options' [(froalaModel)]="educationDetailsTitle.Markstitle"></p>
+                </ng-template>
             </div>
           </div>
         
@@ -52,7 +65,7 @@
         </div>
         <div class="col-sm-1 text-right columns">
           
-          <button type="btn btn-danger" (click)="onRemoveDetails()">
+          <button type="btn btn-danger" (click)="onRemoveDetails(i)">
               <i class="fa fa-close fa-2x"></i>
             </button>
         </div>

@@ -3,7 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { ExperienceDataService } from '../../services/experience-data.service';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
@@ -16,7 +16,7 @@ export class ExperienceComponent implements OnInit {
    experiences:{designation:string,company:string,duration:string,details:string}[];
    id:number;
    froalaId:number=0; 
-
+   experiencesTitle:{title:string,designationtitle:string,companytitle:string,durationtitle:string,detailstitle:string}
   constructor(
     
     private router:Router,
@@ -31,6 +31,7 @@ export class ExperienceComponent implements OnInit {
     this.options=this.froalaEditor.options;
     this.experiences=this.experienceDataService.experiences;
     this.id=this.experienceDataService.experienceId;
+    this.experiencesTitle=this.experienceDataService.experiencesTitle;
   }
 
   onAddDetails(){
@@ -39,10 +40,10 @@ export class ExperienceComponent implements OnInit {
     this.froalaId++;
   }
 
-  onRemoveDetails(){
+  onRemoveDetails(id){
     if(this.id>=1){
-      this.experienceDataService.onRemoveExperienceDetails();
-      this.id--;
+      this.experienceDataService.onRemoveExperienceDetails(id);
+      this.id-1;
     }
     if(this.froalaId>0){
       this.froalaId--;

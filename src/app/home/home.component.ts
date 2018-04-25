@@ -77,7 +77,14 @@ export class HomeComponent implements OnInit {
         phoneNo:'Phone',
         email:'Email',
         address:'Address',
-        image:'Image'
+        image:'Image',
+        nametitle:'Name',
+        professiontitle:'Profession',
+        dobtitle:'Date Of Birth',
+        phoneNotitle:'Phone No',
+        emailtitle:'Email',
+        addresstitle:'Address',
+        imagetitle:'Image'
         }
     );
 
@@ -93,7 +100,7 @@ export class HomeComponent implements OnInit {
     );
 
     this.educationDetailsData.onSetEducationId(0);
-
+   
     // SKILL DETAILS NULLIFY
     this.skillsData.onSetSkillDetails(
       [{name:'Name',details:'Details'}]

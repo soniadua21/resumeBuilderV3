@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class HobbiesDataService {
 
   constructor() { }
-
+  hobbiesTitle:{title}={title:'Hobbies'}
   hobbies:string[]=['Hobbie'];
   hobbieId:number=0;
 
@@ -16,8 +16,8 @@ export class HobbiesDataService {
     this.hobbies.push('Hobbie');
   }
 
-  onRemoveHobbies(){
-    this.hobbies.pop();
+  onRemoveHobbies(id){
+    this.hobbies.splice(id,1);
   }
 
   onSetHobbiesId(id){

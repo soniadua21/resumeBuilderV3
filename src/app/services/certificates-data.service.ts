@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
 export class CertificatesDataService {
 
   constructor() { }
-
+  certificatesTitle:{title}={
+    title:'Certificates'
+  }
   certificates:string[]=['Certificate'];
   certificateId:number=0;
 
@@ -16,8 +18,8 @@ export class CertificatesDataService {
     this.certificates.push('Certificate');
   }
 
-  onRemoveCertificates(){
-    this.certificates.pop();
+  onRemoveCertificates(id){
+    this.certificates.splice(id,1);
   }
 
   onSetCertificatesId(id){

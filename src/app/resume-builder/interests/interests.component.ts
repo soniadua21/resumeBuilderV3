@@ -3,7 +3,7 @@ import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { InterestsDataService } from '../../services/interests-data.service';
 import { Router,ActivatedRoute } from '@angular/router';
- 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-interests',
   templateUrl: './interests.component.html',
@@ -15,7 +15,8 @@ export class InterestsComponent implements OnInit {
    options: Object;
    interests:string[];
    id:number;
-   froalaId:number=0; 
+   froalaId:number=0;
+   interestsTitle:{title:string} 
 
   constructor(
     private router:Router,
@@ -30,6 +31,7 @@ export class InterestsComponent implements OnInit {
     this.options=this.froalaEditor.options;
     this.interests=this.interestsService.interests;
     this.id=this.interestsService.interestId;
+    this.interestsTitle=this.interestsService.interestsTitle;
   }
 
   onAddDetails(){
@@ -38,10 +40,10 @@ export class InterestsComponent implements OnInit {
     this.froalaId++;
   }
 
-  onRemoveDetails(){
+  onRemoveDetails(id){
     if(this.id>=1){
-      this.interestsService.onRemoveInterests();
-      this.id--;
+      this.interestsService.onRemoveInterests(id);
+      this.id-1;
     }
     if(this.froalaId>0){
       this.froalaId--;
